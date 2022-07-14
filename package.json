@@ -1,0 +1,74 @@
+{
+  "name": "simrs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SIMRS",
+  "author": "antonius doni o",
+  "main": "public/electron.js",
+  "homepage": ".",
+  "proxy": "http://localhost:3000",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.1.3",
+    "concurrently": "^7.2.2",
+    "cross-env": "^7.0.3",
+    "electron-is-dev": "^2.0.0",
+    "moment": "^2.29.3",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.4.0",
+    "react-bootstrap-icons": "^1.8.4",
+    "react-confirm-alert": "^3.0.2",
+    "react-datepicker": "^4.8.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "react-select": "^5.3.2",
+    "react-table": "^7.8.0",
+    "react-tabs": "^5.1.0",
+    "react-to-print": "^2.14.7",
+    "react-validation": "^3.0.7",
+    "reactstrap": "^9.1.1",
+    "redux": "^4.2.0",
+    "redux-thunk": "^2.4.1",
+    "socket.io-client": "^4.5.1",
+    "wait-on": "^6.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron-build": "electron-builder",
+    "release": "npm build && electron-builder --publish=always",
+    "build": "react-scripts build && npm run electron-build",
+    "dev": "concurrently \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3030 && electron .\""
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^19.0.4",
+    "electron-builder": "^23.0.3",
+    "electron-is-dev": "^2.0.0",
+    "redux-devtools-extension": "^2.13.9"
+  }
+}

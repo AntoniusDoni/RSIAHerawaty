@@ -1,0 +1,92 @@
+@media screen {
+    .printContent {
+      display: none;
+      position: relative;
+     
+    }
+  }
+  @media all {
+    .page-break {
+      display: none;
+    }
+  }
+  @media print {
+    html{
+      size: 104.775mm 148.5194mm;
+    }
+    body{
+        display: table;
+        table-layout: fixed;
+        margin: 35px;
+        height: auto;
+   }
+   header{
+    border-bottom: 1px solid #000;
+   }
+   .printContent{
+    margin-left:20px;
+   }
+   .printContent .printBody, .printContent header {
+    clear:both;
+    position:relative;
+    overflow:hidden;
+  }
+ 
+   .printContent header h3,.printContent header h5{
+    text-align:center;
+    font-size:11px
+   }
+   .printContent header img{
+    float: left;
+    margin-right: 20px;
+    /* margin-left:20px; */
+    max-width:60px;
+    height:auto;
+ }
+ .printBody{
+  font-size:11px;
+  margin-top:10px;
+ }
+ .printBody  h4{
+  text-align:center;
+  margin-bottom:20px;
+  margin-left:50px;
+  font-size:11px
+ }
+ .printBody p{
+  line-height:1px;
+ }
+ .printBody .left{
+  float:left;
+  width:auto;
+  min-width: 30px;
+  margin-right:10px;
+  text-align:left;
+ }
+ .printBody .leftTitle{
+  float:left;
+  width:auto;
+  margin-right:10px;
+  text-align:left;
+  min-width:100px;
+  display:wrap
+ }
+ .printBody .address{
+  line-height:1px;
+  word-wrap: break-word;
+  display:block;
+  flex:auto;
+  position: relative;
+  width:50%;
+  text-overflow: ellipsis;
+  float: left;
+
+  /* float:left; */
+  /* height:100px; */
+ }
+ @page {
+  size: 104.775mm 148.5194mm;
+  width: 100%;
+  margin:0px
+}
+  }
