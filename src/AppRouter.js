@@ -22,6 +22,7 @@ import { history } from './helpers/history';
 import Penjamin from './components/master/Penjamin';
 import Registrasipoli from './components/registrasi/Registrasipoli';
 import Ralan from './components/ralan/Ralan';
+import Tindakan from './components/ralan/Tindakan';
 
 function AppRouter() {
     
@@ -47,8 +48,10 @@ function AppRouter() {
                 <Route path="/tindakan-ro"  element={<TindakanRo/>}/>
                 <Route path="/tindakan-lab"  element={<TindakanLab/>}/>
                 <Route path="/tindakan-ok"  element={<TindakanOk/>}/>
-                <Route path="/registrasi-poli"  element={<Registrasipoli/>}/>
+                <Route path="/registrasi/poli"  element={<Registrasipoli/>}/>
+                <Route path="/registrasi/igd"  element={<Registrasipoli/>}/>
                 <Route path="/ralan"  element={<Ralan/>}/>
+                <Route path="/tindakan"  element={<Tindakan/>}/>
             </Routes>
         </BrowserRouter>
     )

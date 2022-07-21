@@ -32,7 +32,8 @@ class Ralan extends Component {
             stts_rawat: "1",
             visible:false,
             yPos:"0px",
-            xPos:"0px"
+            xPos:"0px",
+            contextValue:"",
         }
     }
     onChangeInputSearch = e => {
@@ -121,7 +122,8 @@ class Ralan extends Component {
     }
     contextMenu=no_reg=>(event) =>{
         event.preventDefault();
-        console.log(no_reg)
+       
+        this.setState({contextValue:no_reg});
         this.setState({ visible: true,  yPos:`${event.pageY}px`,xPos:`${event.pageX}px` });
     }
     componentDidMount() {
@@ -195,7 +197,7 @@ class Ralan extends Component {
         const range = this.calculateRange(this.state.listRegister, 10);
         const reg = slice.map((regis, index) => {
             return (
-                <tr key={index + "-" + regis.no_reg} onContextMenu={this.contextMenu(regis.no_reg)} onClick={()=>this.setState({visible:false})}>
+                <tr key={index + "-" + regis.no_reg} onContextMenu={this.contextMenu(regis.no_reg)} onClick={()=>this.setState({visible:false,contextValue:""})}>
                     <td>{index + 1}</td>
                     <td>{regis.no_reg}</td>
                     <td>{moment(regis.tgl_reg).format('DD/MM/yyyy')}</td>
@@ -298,9 +300,10 @@ class Ralan extends Component {
                     <ul style={{padding:"initial"}}>
                         <li>
                             <button className="dropdown-item">Status Rawat</button>
-                            <button className="dropdown-item">Pemeriksaan & Tindakan</button>
+                            <a className="dropdown-item" href={"tindakan?noreg="+this.state.contextValue}>Pemeriksaan & Tindakan</a>
                             <button className="dropdown-item">Triase</button>
-                            <button className="dropdown-item">Triase</button>
+                            <button className="dropdown-item">Permintaan RO</button>
+                            <button className="dropdown-item">Permintaan Lab</button>
                         </li>
 
                     </ul>

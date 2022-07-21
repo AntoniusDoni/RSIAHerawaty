@@ -244,11 +244,25 @@ class Registrasipoli extends Component {
     getPoli() {
         return axios.get(REACT_APP_API_ENDPOINT + '/master/getlistpoli/', { headers: authHeader() }).then(
             reseponse => {
-                const options = reseponse.data.map(d => ({
+               
+                const data=[];
+               for(var i=0;i<reseponse.data.length;i++){
+                if(window.location.pathname==="/registrasi/igd"){
+                    if(reseponse.data[i].kode_poli==="IGD"){
+                        data.push(reseponse.data[i]);
+                    }
+                }else{
+                if(reseponse.data[i].kode_poli!=="IGD"){
+                    data.push(reseponse.data[i]);
+                }
+            }
+               }
+                const options = data.map(d => ({
                     "value": d.kode_poli,
                     "label": d.nama_poli
-
                 }))
+               
+              
                 this.setState({ listpoli: options }, this.getDokter)
 
             }
@@ -264,8 +278,6 @@ class Registrasipoli extends Component {
 
                 }))
                 this.setState({ listdokter: options })
-
-
             }
         )
     }
@@ -340,7 +352,6 @@ class Registrasipoli extends Component {
             ttgl_lahir: data.pasien.ttgl_lahir,
             jk: data.pasien.jk,
             no_tlp: data.pasien.no_tlp,
-
             kode_dokter: data.kode_dokter,
             idiks: data.idiks,
             idpenjamin: data.stts_daftar,
@@ -623,7 +634,6 @@ class Registrasipoli extends Component {
                     <TabPanel tabIndex={1}>
                         <FormGroup className="search-formgrup">
                             <Row className="justify-content-md-center">
-
                                 <Col className="col-auto">
                                     <Input type="text" name="searchRm" placeholder="No RM" onChange={this.onChangeInputSearch}></Input>
                                 </Col>
@@ -709,9 +719,10 @@ class Registrasipoli extends Component {
                background:"White",
                padding:"10px",
                fontSize:"12px",
-               boxShadow: "1px 1px 5px 1px"
+               boxShadow: "1px 1px 5px 1px",
+               
               }}>
-                    <ul style={{padding:"initial"}}>
+                    <ul style={{padding:"initial",listStyle:"none"}}>
                         <li>
                         <ReactToPrint
           trigger={() => <button type="button" className="dropdown-item" >Cetak Bukti Register</button>}
@@ -719,7 +730,6 @@ class Registrasipoli extends Component {
           onBeforeGetContent={()=>{this.setState({visible:false})}}
           content={() => this.componentRef}
         />
-                            {/* <button className="dropdown-item" onClick={this.printRegis} value={this.state.contextValue}>Cetak Bukti Register</button>                            */}
                         </li>
 
                     </ul>

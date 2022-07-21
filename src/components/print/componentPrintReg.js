@@ -9,9 +9,15 @@ export class ComponentPrintReg extends Component {
         let nm_pasien="";
         let jk="";
         let alamat="";
+        let umur="";
+        let nama_poli="";
+        let nm_dokter="";
          if(this.props.dataprint.pasien){
         no_rm=this.props.dataprint.pasien.no_rm;
         nm_pasien=this.props.dataprint.pasien.nm_pasien;
+        umur=this.props.dataprint.umurdaftar;
+        nama_poli=this.props.dataprint.poli.nama_poli;
+        nm_dokter=this.props.dataprint.dokter.nm_dokter;
         if(this.props.dataprint.pasien.jk===1){
             jk="Perempuan";
         }else{
@@ -38,24 +44,63 @@ export class ComponentPrintReg extends Component {
                 </header>
                 <div className={style.printBody}>
                 <h4>BUKTI REGISTER PENDAFTARAN</h4>
-                <p className={style.leftTitle}>No Registrasi</p> <p className={style.left}> :</p><p className={style.left}> {this.props.dataprint.no_reg}</p>
-                <div className="clearfix"></div>
-                <p className={style.leftTitle}>Tanggal</p> <p className={style.left}> :</p><p className={style.left}> {this.props.dataprint.tgl_reg}</p>
-                <div className="clearfix"></div>               
-                <p className={style.leftTitle}>No RM</p> <p className={style.left}> :</p><p className={style.left}> {padLeadingZeros(no_rm,digitLength)}</p>
-                <div className="clearfix"></div>  
-                <p className={style.leftTitle}>Nama</p> <p className={style.left}> :</p><p className={style.left}> {nm_pasien}</p>
-                <div className="clearfix"></div>  
-                <p className={style.leftTitle}>Jenis Kelamin</p> <p className={style.left}> :</p><p className={style.left}> {jk}</p>
-                <div className="clearfix"></div>  
-                <p className={style.leftTitle}>Alamat</p> <p className={style.left}> :</p><p className={style.address}> {alamat}</p>
-                <div className="clearfix"></div> 
-
-                <p>No. Telp</p>
-                <p>Umur</p>
-                <p>Poli</p>
-                <p>Dokter</p>
-                <p>Jns Bayar</p>
+                <table>
+                <tbody>
+                    <tr>
+                        <td style={{width:"30%"}}>No Registrasi</td>
+                        <td style={{width:"2%"}}>:</td>
+                        <td style={{width:"68%"}}>{this.props.dataprint.no_reg}</td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal</td>
+                        <td>:</td>
+                        <td>{this.props.dataprint.tgl_reg}</td>
+                    </tr>
+                    <tr>
+                        <td>No RM</td>
+                        <td>:</td>
+                        <td>{padLeadingZeros(no_rm,digitLength)}</td>
+                    </tr>
+                    <tr>
+                        <td>Nama</td>
+                        <td>:</td>
+                        <td>{nm_pasien}</td>
+                    </tr>
+                    <tr>
+                        <td>Jenis Kelamin</td>
+                        <td>:</td>
+                        <td>{jk}</td>
+                    </tr>
+                    <tr>
+                        <td>Alamat</td>
+                        <td>:</td>
+                        <td>{alamat}</td>
+                    </tr>
+                    <tr>
+                        <td>Umur</td>
+                        <td>:</td>
+                        <td>{umur}</td>
+                    </tr>
+                    <tr>
+                        <td>Poli</td>
+                        <td>:</td>
+                        <td>{nama_poli}</td>
+                    </tr>
+                    <tr>
+                        <td>Dokter</td>
+                        <td>:</td>
+                        <td>{nm_dokter}</td>
+                    </tr>
+                    <tr>
+                        <td>Cara Bayar</td>
+                        <td>:</td>
+                        <td>{this.props.dataprint.stts_daftar === 1 ? (<>Umum</>) : this.props.dataprint.stts_daftar === 2 ? (<>BPJS</>) : (<>IKS</>)}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br></br>
+               <p className={style.center}>Terima Kasih Atas Kepercayaan Anda</p>
+               <p className={style.center}>Bawalah Kartu Berobat setiap Berkunjung ke Rumah Sakit</p>
                 </div>
             </div>
         )
