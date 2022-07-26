@@ -289,13 +289,13 @@ class Ralan extends Component {
             </nav>
             {this.state.visible===true?(
                 <div ref={ref => {this.root = ref}} className="contextMenu"  style={{
-                top: this.state.yPos,
+               top: this.state.yPos,
                 left: this.state.xPos,
                position:"absolute",
                background:"White",
                padding:"10px",
                fontSize:"12px",
-               boxShadow: "1px 1px 5px 1px"
+               boxShadow: "1px 1px 5px 1px",
               }}>
                     <ul style={{padding:"initial"}}>
                         <li>

@@ -5,8 +5,7 @@
   "description": "SIMRS",
   "author": "antonius doni o",
   "main": "public/electron.js",
-  "homepage": ".",
-  "proxy": "http://localhost:3000",
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import style from '../../printRegister.module.css'
 import padLeadingZeros from '../PadLeadingZeros'
+const { REACT_APP_API_HOST } = process.env;
 export class ComponentPrintReg extends Component {
 
     render(){
@@ -35,12 +36,12 @@ export class ComponentPrintReg extends Component {
             <div className={style.printContent}>
             <header>
             <img
-            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            src={REACT_APP_API_HOST+"/"+this.props.setting[2].attr}
             alt="profile-img"
             className="profile-img-card"
           />
             <h3>{this.props.setting[0].attr}</h3>
-            <h5>{this.props.setting[2].attr}</h5>
+            <h5>{this.props.setting[1].attr}</h5>
                 </header>
                 <div className={style.printBody}>
                 <h4>BUKTI REGISTER PENDAFTARAN</h4>

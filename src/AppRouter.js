@@ -23,6 +23,7 @@ import Penjamin from './components/master/Penjamin';
 import Registrasipoli from './components/registrasi/Registrasipoli';
 import Ralan from './components/ralan/Ralan';
 import Tindakan from './components/ralan/Tindakan';
+import SettingMaster from './components/settingMaster';
 
 function AppRouter() {
     
@@ -52,6 +53,7 @@ function AppRouter() {
                 <Route path="/registrasi/igd"  element={<Registrasipoli/>}/>
                 <Route path="/ralan"  element={<Ralan/>}/>
                 <Route path="/tindakan"  element={<Tindakan/>}/>
+                <Route path="/setting"  element={<SettingMaster/>}/>
             </Routes>
         </BrowserRouter>
     )
